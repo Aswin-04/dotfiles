@@ -6,15 +6,16 @@ vim.hl.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitt
 
 -- Appearance of diagnostics
 vim.diagnostic.config({
-	virtual_text = {
-		prefix = "●",
-		spacing = 4,
-		-- Add a custom format function to show error codes
-		format = function(diagnostic)
-			local code = diagnostic.code and string.format("[%s]", diagnostic.code) or ""
-			return string.format("%s %s", code, diagnostic.message)
-		end,
-	},
+	-- virtual_text = {
+	-- 	prefix = "●",
+	-- 	spacing = 4,
+	-- 	-- Add a custom format function to show error codes
+	-- 	format = function(diagnostic)
+	-- 		local code = diagnostic.code and string.format("[%s]", diagnostic.code) or ""
+	-- 		return string.format("%s %s", code, diagnostic.message)
+	-- 	end,
+	-- },
+	virtual_text = false,
 	underline = false,
 	update_in_insert = true,
 	severity_sort = true,
@@ -30,25 +31,25 @@ vim.diagnostic.config({
 		},
 	},
 	-- Make diagnostic background transparent
-	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", {
-		bg = "NONE",
-		fg = "#ff6c6b",
-	}),
-
-	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", {
-		bg = "NONE",
-		fg = "#ECBE7B",
-	}),
-
-	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", {
-		bg = "NONE",
-		fg = "#51afef",
-	}),
-
-	vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", {
-		bg = "NONE",
-		fg = "#98be65",
-	}),
+	-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", {
+	-- 	bg = "#2a1f1f",
+	-- 	fg = "#ff6c6b",
+	-- }),
+	--
+	-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", {
+	-- 	bg = "#2a2418",
+	-- 	fg = "#ECBE7B",
+	-- }),
+	--
+	-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", {
+	-- 	bg = "#1c2630",
+	-- 	fg = "#51afef",
+	-- }),
+	--
+	-- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", {
+	-- 	bg = "#1f2a1c",
+	-- 	fg = "#98be65",
+	-- }),
 })
 
 -- Remove background highlight applied by LSP when cursor is on a symbol
