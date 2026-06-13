@@ -1,8 +1,4 @@
 return {
-	{
-		-- Detect tabstop and shiftwidth automatically
-		"tpope/vim-sleuth",
-	},
 	{ -- Git plugin
 		"tpope/vim-fugitive",
 	},
@@ -27,11 +23,5 @@ return {
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
-	},
-	{ -- High-performance color highlighter
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
 	},
 }
