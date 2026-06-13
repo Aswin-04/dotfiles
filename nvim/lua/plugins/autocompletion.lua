@@ -1,5 +1,17 @@
 return {
 	{
+		"folke/lazydev.nvim",
+		ft = "lua", -- only load on lua files
+		opts = {
+			library = {
+				-- See the configuration section for more details
+				-- Load luvit types when the `vim.uv` word is found
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+
+	{
 		"saghen/blink.cmp",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
@@ -52,6 +64,10 @@ return {
 			},
 
 			completion = {
+				list = {
+					selection = { preselect = false },
+				},
+
 				-- Instant documentation like VS Code
 				documentation = {
 					auto_show = true,
@@ -87,7 +103,16 @@ return {
 			},
 
 			sources = {
-				default = { "lsp", "snippets", "buffer", "path" },
+				-- add lazydev to your completion providers
+				default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						-- make lazydev completions top priority (see `:h blink.cmp`)
+						score_offset = 100,
+					},
+				},
 			},
 		},
 
