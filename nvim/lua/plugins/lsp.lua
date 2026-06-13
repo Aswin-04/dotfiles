@@ -50,7 +50,7 @@ return {
 				},
 			},
 
-      'saghen/blink.cmp',
+			"saghen/blink.cmp",
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -147,7 +147,7 @@ return {
 			-- By default, Neovim doesn't support everything that is in the LSP specification.
 			-- When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
 			-- So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			-- Enable the following language servers
 			--
@@ -192,7 +192,7 @@ return {
 							runtime = { version = "LuaJIT" },
 							workspace = {
 								checkThirdParty = false,
-								library = vim.api.nvim_get_runtime_file("", true),
+								-- library = vim.api.nvim_get_runtime_file("", true),
 							},
 							diagnostics = {
 								globals = { "vim" },
